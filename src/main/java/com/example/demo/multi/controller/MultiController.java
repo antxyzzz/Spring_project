@@ -20,7 +20,7 @@ public class MultiController {
 
 		String result = "";
 
-		result = String.valueOf(multiService.plus(2, 7));
+		result = String.valueOf(multiService.multi(2, 7));
 
 		model.addAttribute("result", result);
 
