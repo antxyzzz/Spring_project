@@ -25,28 +25,12 @@ public class CalculatorController {
 
 	@PostMapping("calculator")
 
-	public String doGet(
+	public String doPost(
 			@RequestParam("number1") int number1,
 			@RequestParam("number2") int number2,
 			@RequestParam("operator") String operator,
 			Model model) {
-		int result = 0;
-
-		switch (operator) {
-		case "plus":
-			result = calculatorService.plus(number1, number2);
-			break;
-		case "minus":
-			result = calculatorService.minus(number1, number2);
-			break;
-		case "multi":
-			result = calculatorService.multi(number1, number2);
-			break;
-		case "divide":
-			result = calculatorService.divide(number1, number2);
-			break;
-		}
-
+		int result = calculatorService.calculate(number1, number2, operator);
 		model.addAttribute("result", result);
 		return "calculator.html";
 	}

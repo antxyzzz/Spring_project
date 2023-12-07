@@ -5,6 +5,22 @@ import org.springframework.stereotype.Service;
 @Service
 public class CalculatorService {
 
+	public int calculate(int number1, int number2, String operator) {
+
+		switch (operator) {
+		case "plus":
+			return plus(number1, number2);
+		case "minus":
+			return minus(number1, number2);
+		case "multi":
+			return multi(number1, number2);
+		case "divide":
+			return divide(number1, number2);
+		default:
+			throw new IllegalArgumentException("Invalid operator: " + operator);
+		}
+	}
+
 	public int plus(int number1, int number2) {
 		return number1 + number2;
 	}
@@ -24,4 +40,5 @@ public class CalculatorService {
 			throw new ArithmeticException("Cannot divide by zero");
 		}
 	}
+
 }
